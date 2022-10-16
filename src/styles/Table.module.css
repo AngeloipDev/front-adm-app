@@ -1,0 +1,216 @@
+.gridHeader {
+  position: relative;
+  padding: 12px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #fff;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gridSearch {
+  position: relative;
+}
+
+.gridSearch input {
+  width: 100%;
+  border-radius: 8px;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 10px 36px 10px 20px;
+  font-size: 16px;
+  color: rgba(38, 38, 38);
+  background: #f2f2f2;
+}
+
+::placeholder {
+  font-weight: 400;
+}
+
+.gridSearch span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  font-size: 18px;
+  height: 18px;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+.gridOptions {
+  display: flex;
+  align-items: center;
+}
+
+.btnTooltip {
+  position: relative;
+  cursor: pointer;
+  padding: 10px 10px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.btnTooltip:hover {
+  background-color: #f0f0f0;
+}
+.tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: -50%;
+  transform: translate(-50%, 0);
+  color: #fff;
+  background-color: #0000008a;
+  white-space: nowrap;
+  padding: 3px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.btnTooltip:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/********************************************/
+
+.gridTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  text-align: left;
+  overflow: hidden;
+  box-shadow: 0 5px 10px #e1e5ee;
+}
+.gridTable .gridThead {
+  box-shadow: 0 5px 10px #e1e5ee;
+}
+.gridTh {
+  position: relative;
+  color: #6b7280;
+  padding: 14px 24px;
+  text-transform: uppercase;
+}
+.gridTd {
+  padding: 12px 24px;
+  color: #4f546c;
+}
+
+.gridTr:nth-child(even) {
+  background-color: #f4f6fb;
+}
+
+/***************************/
+
+.gridFooter {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 12px 24px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #fff;
+  box-shadow: 0 5px 10px #e1e5ee;
+  border-radius: 0 0 8px 8px;
+}
+.gridPagination {
+  color: #3d4044;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #20b2aa;
+}
+.pagNum {
+  cursor: pointer;
+  display: flex;
+  min-height: 35px;
+  min-width: 35px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.pagNum:hover,
+.pagActive {
+  background: #20b2aa;
+  color: #fff;
+}
+
+@media (max-width: 840px) {
+  .gridPagination {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .pagContainer {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gridHeader {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .gridSearch {
+    width: 100%;
+  }
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #666;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}

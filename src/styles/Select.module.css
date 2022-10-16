@@ -1,0 +1,32 @@
+.selectBox {
+  position: relative;
+  width: 200px;
+}
+
+.selectBox select {
+  height: 42px;
+  padding: 10px 15px;
+  font-size: 16px;
+  width: 100%;
+  appearance: none;
+  border: 2px solid #e2e2e2;
+  border-radius: 8px;
+  outline: none;
+}
+.SelectBox select:focus {
+  border-color: #1b8f43;
+}
+.SelectBox select:hover {
+  border-color: #1b8f43;
+}
+
+.selectBox::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -3px;
+  border-top: 8px solid #ccc;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
