@@ -50,9 +50,10 @@ export const Table = ({ data, setData, items }) => {
     setData(
       items.filter((user) => user.name.toLowerCase().includes(e.target.value))
     );
-    /* if (forcePage > 0) {
+    if (forcePage > 0) {
       setForcePage(0);
-    } */
+      setItemOffset(0);
+    }
   };
 
   const onChange = (e) => {
@@ -149,7 +150,7 @@ export const Table = ({ data, setData, items }) => {
           <div className={styles.gridPagination}>
             <div className={styles.gridSummary}>
               Mostrando del <b>{itemOffset + 1}</b> al{" "}
-              <b>{itemOffset + itemsPerPage}</b> de <b>{data.length}</b>{" "}
+              <b>{itemOffset + currentItems.length}</b> de <b>{data.length}</b>{" "}
               resultados
             </div>
             <div className={styles.gridPages}>
