@@ -32,3 +32,23 @@ ul {
 .break a {
   cursor: pointer;
 }
+input,
+button,
+select {
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(185, 185, 185);
+  border-radius: 10px;
+  height: 200px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}

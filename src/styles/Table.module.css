@@ -1,42 +1,22 @@
 .gridHeader {
   position: relative;
   padding: 12px 24px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 2px solid #e5e7eb;
   background-color: #fff;
   border-radius: 8px 8px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 
-.gridSearch {
-  position: relative;
+.gridEntries {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
-
-.gridSearch input {
-  width: 100%;
-  border-radius: 8px;
-  flex: 1;
-  border: 0;
-  outline: none;
-  padding: 10px 36px 10px 20px;
-  font-size: 16px;
-  color: rgba(38, 38, 38);
-  background: #f2f2f2;
-}
-
-::placeholder {
-  font-weight: 400;
-}
-
-.gridSearch span {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  font-size: 18px;
-  height: 18px;
-  transform: translate(0, -50%);
-  cursor: pointer;
+.gridEntries span {
+  color: #666;
 }
 
 .gridOptions {
@@ -44,52 +24,20 @@
   align-items: center;
 }
 
-.btnTooltip {
-  position: relative;
-  cursor: pointer;
-  padding: 10px 10px;
-  background-color: transparent;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  transition: all 0.3s ease;
-}
-.btnTooltip:hover {
-  background-color: #f0f0f0;
-}
-.tooltip {
-  position: absolute;
-  left: 50%;
-  bottom: -50%;
-  transform: translate(-50%, 0);
-  color: #fff;
-  background-color: #0000008a;
-  white-space: nowrap;
-  padding: 3px 6px;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 4px;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-.btnTooltip:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
 /********************************************/
-
+.gridWrapper {
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
 .gridTable {
-  width: 100%;
   border-collapse: collapse;
   background-color: white;
   text-align: left;
-  overflow: hidden;
+  width: 100%;
   box-shadow: 0 5px 10px #e1e5ee;
 }
 .gridTable .gridThead {
-  box-shadow: 0 5px 10px #e1e5ee;
+  box-shadow: 0 1px 5px #e1e5ee;
 }
 .gridTh {
   position: relative;
@@ -100,6 +48,12 @@
 .gridTd {
   padding: 12px 24px;
   color: #4f546c;
+}
+
+.tdActions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .gridTr:nth-child(even) {
@@ -146,6 +100,15 @@
 .pagActive {
   background: #20b2aa;
   color: #fff;
+  user-select: none;
+}
+
+.disabledBtn {
+  background: rgba(128, 128, 128, 0.219);
+  border-radius: 50%;
+  color: #000;
+  user-select: none;
+  pointer-events: none;
 }
 
 @media (max-width: 840px) {
@@ -164,8 +127,15 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  .gridSearch {
+  .gridSearch,
+  .gridEntries {
     width: 100%;
+  }
+  .gridEntries {
+    justify-content: center;
+  }
+  .gridWrapper {
+    overflow: hidden;
   }
   table {
     border: 0;

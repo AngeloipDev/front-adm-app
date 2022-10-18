@@ -1,0 +1,34 @@
+.btnTooltip {
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.btnTooltip:hover {
+  background-color: #f0f0f0;
+}
+.tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: -50%;
+  transform: translate(-50%, 0);
+  color: #fff;
+  background-color: #0000008a;
+  white-space: nowrap;
+  padding: 3px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.btnTooltip:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
