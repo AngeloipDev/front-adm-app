@@ -1,0 +1,9 @@
+.productsContainer {
+  padding-left: 4rem;
+}
+
+@media screen and (max-width: 600px) {
+  .productsContainer {
+    padding-left: 0;
+  }
+}

@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #1a202c;
+  background-color: #003053;
   color: #fff;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
   z-index: 1;
@@ -24,16 +24,17 @@
   align-items: center;
   justify-content: center;
   margin: 8px auto;
-  background-color: #2d3748;
-  padding: 6px;
-  color: #48bb78;
+
+  padding: 8px;
+  color: #fff;
   border-radius: 50%;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.sidebar_icon:hover {
-  background-color: #38a169;
+.sidebar_icon:hover,
+.sidebar_icon.active {
+  background-color: #184463;
   color: #fff;
   border-radius: 6px;
 }
@@ -57,4 +58,10 @@
 }
 .sidebar_icon:hover .sidebar_tooltip {
   transform: scale(1);
+}
+
+@media screen and (max-width: 600px) {
+  .sidebarContainer {
+    display: none;
+  }
 }

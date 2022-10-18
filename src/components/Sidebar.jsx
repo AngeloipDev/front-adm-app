@@ -1,9 +1,10 @@
 import style from "../styles/Sidebar.module.css";
-import { FaFire } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
+import { useEffect } from "react";
+import { optionsSidebar } from "../constants/constants";
 
 const SideBarIcon = ({ icon, text = "tooltip 💡" }) => (
-  <div className={`${style.sidebar_icon} ${style.group}`}>
+  <div className={style.sidebar_icon}>
     {icon}
 
     <span className={style.sidebar_tooltip}>{text}</span>
@@ -11,16 +12,32 @@ const SideBarIcon = ({ icon, text = "tooltip 💡" }) => (
 );
 
 export const Sidebar = () => {
+  useEffect(() => {
+    let options = document.querySelectorAll(
+      `.${style.sidebarUp} .${style.sidebar_icon}`
+    );
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        reset();
+        option.classList.add(`${style.active}`);
+      });
+    });
+    const reset = () => {
+      options.forEach((option) => {
+        option.classList.remove(`${style.active}`);
+      });
+    };
+  }, []);
+
   return (
     <div className={style.sidebarContainer}>
       <div className={style.sidebarUp}>
-        <SideBarIcon icon={<FaFire size={32} />} />
-        <SideBarIcon icon={<FaFire size={32} />} />
-        <SideBarIcon icon={<FaFire size={32} />} />
-        <SideBarIcon icon={<FaFire size={32} />} />
+        {optionsSidebar.map((option, index) => (
+          <SideBarIcon key={index} icon={option.icon} text={option.text} />
+        ))}
       </div>
       <div className={style.sidebarDown}>
-        <SideBarIcon icon={<BiLogOut size={32} />} text="Cerrar Sesión" />
+        <SideBarIcon icon={<BiLogOut size={20} />} text="Cerrar Sesión" />
       </div>
     </div>
   );
