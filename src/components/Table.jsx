@@ -7,6 +7,7 @@ import { Input } from "./Input";
 import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import { FiArrowUp } from "react-icons/fi";
 import { IconButton } from "./IconButton";
+import notFound from "../images/not-found.png";
 
 export const Table = ({ data, setData, items }) => {
   const [currentItems, setCurrentItems] = useState([]);
@@ -113,35 +114,49 @@ export const Table = ({ data, setData, items }) => {
               </tr>
             </thead>
             <tbody className={styles.gridTbody}>
-              {currentItems.map((user, index) => (
-                <tr key={index} className={styles.gridTr}>
-                  <td data-label={columns[0]} className={styles.gridTd}>
-                    {user.name}
-                  </td>
-                  <td data-label={columns[1]} className={styles.gridTd}>
-                    {user.email}
-                  </td>
-                  <td data-label={columns[2]} className={styles.gridTd}>
-                    {user.date}
-                  </td>
-                  <td data-label={columns[3]} className={styles.gridTd}>
-                    <div className={styles.tdActions}>
-                      <IconButton
-                        icon={<FaEye size={18} fill={"#58AD69"} />}
-                        text={"Visualizar"}
-                      />
-                      <IconButton
-                        icon={<FaEdit size={18} fill={"#ffa500"} />}
-                        text={"Editar"}
-                      />
-                      <IconButton
-                        icon={<FaTrash size={18} fill={"#E2574C"} />}
-                        text={"Eliminar"}
-                      />
-                    </div>
+              {currentItems.length !== 0 ? (
+                currentItems.map((user, index) => (
+                  <tr key={index} className={styles.gridTr}>
+                    <td data-label={columns[0]} className={styles.gridTd}>
+                      {user.name}
+                    </td>
+                    <td data-label={columns[1]} className={styles.gridTd}>
+                      {user.email}
+                    </td>
+                    <td data-label={columns[2]} className={styles.gridTd}>
+                      {user.date}
+                    </td>
+                    <td data-label={columns[3]} className={styles.gridTd}>
+                      <div className={styles.tdActions}>
+                        <IconButton
+                          icon={<FaEye size={18} fill={"#58AD69"} />}
+                          text={"Visualizar"}
+                        />
+                        <IconButton
+                          icon={<FaEdit size={18} fill={"#ffa500"} />}
+                          text={"Editar"}
+                        />
+                        <IconButton
+                          icon={<FaTrash size={18} fill={"#E2574C"} />}
+                          text={"Eliminar"}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr style={{ textAlign: "center" }}>
+                  <td colSpan={columns.length} style={{ padding: "10px" }}>
+                    <img
+                      src={notFound}
+                      alt="NotFound"
+                      style={{ width: "200px" }}
+                    />
+                    <br />
+                    <span>No hay datos coincidentes para mostrar 🙁</span>
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </main>
@@ -149,9 +164,17 @@ export const Table = ({ data, setData, items }) => {
         <footer className={styles.gridFooter}>
           <div className={styles.gridPagination}>
             <div className={styles.gridSummary}>
-              Mostrando del <b>{itemOffset + 1}</b> al{" "}
-              <b>{itemOffset + currentItems.length}</b> de <b>{data.length}</b>{" "}
-              resultados
+              {currentItems.length !== 0 ? (
+                <>
+                  Mostrando del <b>{itemOffset + 1}</b> al{" "}
+                  <b>{itemOffset + currentItems.length}</b> de{" "}
+                  <b>{data.length}</b> resultados
+                </>
+              ) : (
+                <>
+                  <b>Sin Resultados</b>
+                </>
+              )}
             </div>
             <div className={styles.gridPages}>
               <ReactPaginate

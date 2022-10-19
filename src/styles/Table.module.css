@@ -137,15 +137,15 @@
   .gridWrapper {
     overflow: hidden;
   }
-  table {
+  .gridTable {
     border: 0;
   }
 
-  table caption {
+  .gridTable caption {
     font-size: 1.3em;
   }
 
-  table thead {
+  .gridTable .gridThead {
     border: none;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -156,12 +156,12 @@
     width: 1px;
   }
 
-  table tr {
+  .gridTable .gridTr {
     border-bottom: 3px solid #ddd;
     display: block;
   }
 
-  table td {
+  .gridTable .gridTd {
     border-bottom: 1px solid #ddd;
     display: block;
     font-size: 0.8em;
@@ -172,7 +172,7 @@
     color: #666;
   }
 
-  table td::before {
+  .gridTable .gridTd::before {
     content: attr(data-label);
     float: left;
     font-weight: bold;
@@ -180,7 +180,7 @@
     color: #000;
   }
 
-  table td:last-child {
+  .gridTable .gridTd:last-child {
     border-bottom: 0;
   }
 }
