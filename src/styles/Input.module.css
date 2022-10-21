@@ -13,9 +13,11 @@
   transition: 0.2s;
 }
 .form__input:hover,
-.form__input.form__area:hover {
+.form__input.form__area:hover,
+.form__input:focus {
   border-color: var(--btn-color);
 }
+
 .form__label {
   font-size: 16px;
   position: absolute;
@@ -43,9 +45,10 @@
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-  font-size: 20px;
-  color: #000;
-  height: 20px;
   cursor: pointer;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }

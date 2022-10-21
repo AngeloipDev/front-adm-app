@@ -8,6 +8,8 @@ import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import { FiArrowUp } from "react-icons/fi";
 import { IconButton } from "./IconButton";
 import notFound from "../images/not-found.png";
+import { Modal } from "./Modal";
+import { AlertModal } from "./AlertModal";
 
 export const Table = ({ data, setData, items }) => {
   const [currentItems, setCurrentItems] = useState([]);
@@ -60,6 +62,9 @@ export const Table = ({ data, setData, items }) => {
   const onChange = (e) => {
     setItemsPerPage(parseInt(e.target.value));
   };
+
+  const [show, setShow] = useState(false);
+  const [id, setId] = useState("");
 
   return (
     <>
@@ -139,6 +144,10 @@ export const Table = ({ data, setData, items }) => {
                         <IconButton
                           icon={<FaTrash size={18} fill={"#E2574C"} />}
                           text={"Eliminar"}
+                          onClick={() => {
+                            setId(user.name);
+                            setShow(true);
+                          }}
                         />
                       </div>
                     </td>
@@ -200,6 +209,7 @@ export const Table = ({ data, setData, items }) => {
           </div>
         </footer>
       </div>
+      <AlertModal show={show} setShow={setShow} id={id} />
     </>
   );
 };

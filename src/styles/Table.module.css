@@ -27,7 +27,7 @@
 /********************************************/
 .gridWrapper {
   overflow-y: hidden;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 .gridTable {
   border-collapse: collapse;
