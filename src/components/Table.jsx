@@ -190,7 +190,8 @@ export const Table = ({ data, setData, items }) => {
                 breakLabel="···"
                 nextLabel=">"
                 onPageChange={handlePageClick}
-                pageRangeDisplayed={2}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={1}
                 pageCount={pageCount}
                 previousLabel="<"
                 renderOnZeroPageCount={null}
